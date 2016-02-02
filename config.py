@@ -42,6 +42,8 @@ EXTRA_PATH_METADATA = {
 
 THEME = 'Flex'
 
+MAIN_MENU = True
+
 SITETITLE = 'Terrence'
-SITESUBTITLE = 'Web Developer'
+SITESUBTITLE = 'Web Developer (范腾远)'
 SITELOGO = SITEURL + '/extra/inori.jpeg'

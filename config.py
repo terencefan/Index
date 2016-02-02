@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'Inori'
-SITENAME = u"Inori's workspace"
-SITEURL = ''
+AUTHOR = u'Terrence'
+SITENAME = u"小祈和小翼的空间站"
+SITEURL = 'http://inority.com'
 
 PATH = 'content'
 
@@ -22,6 +22,8 @@ AUTHOR_FEED_RSS = None
 # Blogroll
 LINKS = (
     ('Github', 'https://github.com/stdrickforce'),
+    ('微博', 'http://weibo.com/3752876962'),
+    ('知乎', 'https://www.zhihu.com/people/fan-teng-yuan')
 )
 
 # Social widget
@@ -30,7 +32,7 @@ SOCIAL = (('You can add links in your config file', '#'),
 
 DEFAULT_PAGINATION = 10
 
-STATIC_PATHS = ['extra/CNAME']
+STATIC_PATHS = ['extra']
 
 EXTRA_PATH_METADATA = {
     'extra/CNAME': {
@@ -40,5 +42,6 @@ EXTRA_PATH_METADATA = {
 
 THEME = 'Flex'
 
-# Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+SITETITLE = 'Terrence'
+SITESUBTITLE = 'Web Developer'
+SITELOGO = SITEURL + '/extra/inori.jpeg'

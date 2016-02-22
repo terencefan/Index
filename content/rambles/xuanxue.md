@@ -42,3 +42,47 @@ f[n][k] = f[n - 1][k - 1]
 # T(k)，Space(1) 算法
 
 其实观察deque里面的内容，我们能发现这其实就是一个k阶Fibonacci数列！那么或许可以去找到通项公式...
+
+# SPOJ
+
+其实这道题在spoj上面有类似的，[Black And White beads](http://www.spoj.com/problems/BWB/)
+
+贴上代码以供交流～
+
+```python
+from collections import deque
+
+N = 10 ** 4
+K = 10 ** 2
+MOD = 10 ** 9 + 7
+
+
+class Solution(object):
+
+    def __init__(self):
+        f = []
+        for k in range(1, K + 1):
+            s = deque([0] * (k - 1) + [1, 1])
+            t = s[-1]
+            dp = [0] * N
+            for i in range(N):
+                dp[i] = s[-1]
+                t = (t * 2 - s.popleft()) % MOD
+                s.append(t)
+            f.append(list(dp))
+        self.f = f
+
+    def solute(self, n, k):
+        return self.f[k - 1][n - 1]
+
+
+if __name__ == '__main__':
+    s = Solution()
+    m, t = [], int(raw_input())
+    for i in range(t):
+        n, k = map(int, raw_input().split(' '))
+        m.append((n, k))
+
+    for n, k in m:
+        print s.solute(n, k)
+```

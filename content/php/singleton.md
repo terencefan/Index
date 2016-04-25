@@ -93,15 +93,15 @@ class Singleton {
 
 trait Singleton {
 
-    private static $instance;
+    protected static $instance;
 
     public function __clone() {
         die('clone method is not allowed');
     }
 
     public static final function getInstance() {
-        if(is_null(self::$instance)) {
-            self::$instance = new self;
+        if(is_null(static::$instance)) {
+            static::$instance = new static;
         }
         return self::$instance;
 
@@ -109,6 +109,4 @@ trait Singleton {
 
 }
 ```
-这里则是用到了php 5.4的trait特性，不占用继承的位置了，然而$instance会被子类复写的问题又回来了><
-
-所以看上去php并不能找到一个完美的单例模式实现...
+这里则是用到了php 5.4的trait特性，不占用继承的位置了，看上去是个完美的方案！

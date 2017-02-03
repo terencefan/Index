@@ -1,1 +1,0 @@
-# inority.com

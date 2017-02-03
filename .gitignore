@@ -65,4 +65,7 @@ target/
 # pyenv
 .python-version
 
+# pid files
+*.pid
+
 /output/

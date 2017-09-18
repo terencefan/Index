@@ -8,7 +8,7 @@
   <meta name="description" content="背景「服务化」是一个互联网公司从小到大过程中不可缺少的一段旅程。百姓网作为一个具有十年历史的“老”公司，沉重的历史包袱导致我们主站的设计上仍然是单体应用。但随着业务的扩张、后端技术团队的逐步分化、跨系统之间的调用越来越多，原本的系统架构已经不堪重负。缺乏统一标准的远程调用导致出现问题很难排查，而内部文档的缺乏更是造成极大的代码冗余。一个高效易用的「服务化」框架已经迫在眉睫。 谈谈问题所在「服务化」">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2017/09/15/Thrift TPC 在百姓网的实践之路（第一版）/index.html">
+<meta property="og:url" content="http://stdrickforce.github.io/Index/2017/09/15/Thrift TPC 在百姓网的实践之路（第一版）/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="背景「服务化」是一个互联网公司从小到大过程中不可缺少的一段旅程。百姓网作为一个具有十年历史的“老”公司，沉重的历史包袱导致我们主站的设计上仍然是单体应用。但随着业务的扩张、后端技术团队的逐步分化、跨系统之间的调用越来越多，原本的系统架构已经不堪重负。缺乏统一标准的远程调用导致出现问题很难排查，而内部文档的缺乏更是造成极大的代码冗余。一个高效易用的「服务化」框架已经迫在眉睫。 谈谈问题所在「服务化」">
 <meta property="og:updated_time" content="2017-09-18T06:48:07.000Z">
@@ -24,7 +24,7 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/Index/css/style.css">
   
 
 </head>
@@ -37,7 +37,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/Index/" id="logo">Hexo</a>
       </h1>
       
     </div>
@@ -45,9 +45,9 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/">Home</a>
+          <a class="main-nav-link" href="/Index/">Home</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          <a class="main-nav-link" href="/Index/archives">Archives</a>
         
       </nav>
       <nav id="sub-nav">
@@ -57,7 +57,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://stdrickforce.github.io/Index"></form>
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@
       <div class="outer">
         <section id="main"><article id="post-Thrift TPC 在百姓网的实践之路（第一版）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/09/15/Thrift TPC 在百姓网的实践之路（第一版）/" class="article-date">
+    <a href="/Index/2017/09/15/Thrift TPC 在百姓网的实践之路（第一版）/" class="article-date">
   <time datetime="2017-09-15T10:16:11.000Z" itemprop="datePublished">2017-09-15</time>
 </a>
     
@@ -161,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/15/Thrift TPC 在百姓网的实践之路（第一版）/" data-id="cj7q31mby000162vdf8yukjbh" class="article-share-link">Share</a>
+      <a data-url="http://stdrickforce.github.io/Index/2017/09/15/Thrift TPC 在百姓网的实践之路（第一版）/" data-id="cj7q31mby000162vdf8yukjbh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -170,7 +170,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/09/15/My-New-Post/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Index/2017/09/15/My-New-Post/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -201,7 +201,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Index/archives/2017/09/">September 2017</a></li></ul>
     </div>
   </div>
 
@@ -214,11 +214,11 @@
       <ul>
         
           <li>
-            <a href="/2017/09/15/My-New-Post/">My New Post</a>
+            <a href="/Index/2017/09/15/My-New-Post/">My New Post</a>
           </li>
         
           <li>
-            <a href="/2017/09/15/Thrift TPC 在百姓网的实践之路（第一版）/">(no title)</a>
+            <a href="/Index/2017/09/15/Thrift TPC 在百姓网的实践之路（第一版）/">(no title)</a>
           </li>
         
       </ul>
@@ -241,9 +241,9 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/Index/" class="mobile-nav-link">Home</a>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <a href="/Index/archives" class="mobile-nav-link">Archives</a>
   
 </nav>
     
@@ -251,11 +251,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/Index/fancybox/jquery.fancybox.css">
+  <script src="/Index/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script src="/Index/js/script.js"></script>
 
   </div>
 </body>

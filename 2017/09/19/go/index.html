@@ -5,17 +5,17 @@
   
   <title>go | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="变量定义Go 虽然是强类型语言，但其提供了类型推断，以下几种都是定义变量的合法形式： 1234var a intvar a int = 1var a = 1a:= 1 切片和数组的初始化123var a = [3]int&amp;#123;1, 2, 3&amp;#125;         // 数组var a = [...]int&amp;#123;1, 2, 3&amp;#125;       // 数组var a = []">
+  <meta name="description" content="变量定义Go 虽然是强类型语言，但其提供了类型推断，以下几种都是定义变量的合法形式： 1234var a intvar a int = 1var a = 1a := 1 同一类型的常量可以在一行内定义 1var a, b int 不同类型的常量可以利用类型推断初始化 1var a, b = &quot;123&quot;, 123 切片和数组的初始化123var a = [3]int&amp;#123;1, 2, 3&amp;#12">
 <meta name="keywords" content="go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="go">
 <meta property="og:url" content="http://stdrickforce.github.io/Index/2017/09/19/go/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="变量定义Go 虽然是强类型语言，但其提供了类型推断，以下几种都是定义变量的合法形式： 1234var a intvar a int = 1var a = 1a:= 1 切片和数组的初始化123var a = [3]int&amp;#123;1, 2, 3&amp;#125;         // 数组var a = [...]int&amp;#123;1, 2, 3&amp;#125;       // 数组var a = []">
-<meta property="og:updated_time" content="2017-09-18T23:31:06.000Z">
+<meta property="og:description" content="变量定义Go 虽然是强类型语言，但其提供了类型推断，以下几种都是定义变量的合法形式： 1234var a intvar a int = 1var a = 1a := 1 同一类型的常量可以在一行内定义 1var a, b int 不同类型的常量可以利用类型推断初始化 1var a, b = &quot;123&quot;, 123 切片和数组的初始化123var a = [3]int&amp;#123;1, 2, 3&amp;#12">
+<meta property="og:updated_time" content="2017-09-19T01:47:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="go">
-<meta name="twitter:description" content="变量定义Go 虽然是强类型语言，但其提供了类型推断，以下几种都是定义变量的合法形式： 1234var a intvar a int = 1var a = 1a:= 1 切片和数组的初始化123var a = [3]int&amp;#123;1, 2, 3&amp;#125;         // 数组var a = [...]int&amp;#123;1, 2, 3&amp;#125;       // 数组var a = []">
+<meta name="twitter:description" content="变量定义Go 虽然是强类型语言，但其提供了类型推断，以下几种都是定义变量的合法形式： 1234var a intvar a int = 1var a = 1a := 1 同一类型的常量可以在一行内定义 1var a, b int 不同类型的常量可以利用类型推断初始化 1var a, b = &quot;123&quot;, 123 切片和数组的初始化123var a = [3]int&amp;#123;1, 2, 3&amp;#12">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://stdrickforce.github.io/Index"></form>
@@ -87,13 +87,40 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h2><p>Go 虽然是强类型语言，但其提供了类型推断，以下几种都是定义变量的合法形式：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a <span class="keyword">int</span></div><div class="line"><span class="keyword">var</span> a <span class="keyword">int</span> = <span class="number">1</span></div><div class="line"><span class="keyword">var</span> a = <span class="number">1</span></div><div class="line">a:= <span class="number">1</span></div></pre></td></tr></table></figure>
-<h2 id="切片和数组的初始化"><a href="#切片和数组的初始化" class="headerlink" title="切片和数组的初始化"></a>切片和数组的初始化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = [3]int&#123;1, 2, 3&#125;         // 数组</div><div class="line">var a = [...]int&#123;1, 2, 3&#125;       // 数组</div><div class="line">var a = []int&#123;1, 2, 3&#125;          // 切片</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a <span class="keyword">int</span></div><div class="line"><span class="keyword">var</span> a <span class="keyword">int</span> = <span class="number">1</span></div><div class="line"><span class="keyword">var</span> a = <span class="number">1</span></div><div class="line">a := <span class="number">1</span></div></pre></td></tr></table></figure>
+<p>同一类型的常量可以在一行内定义</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a, b <span class="keyword">int</span></div></pre></td></tr></table></figure>
+<p>不同类型的常量可以利用类型推断初始化</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a, b = <span class="string">"123"</span>, <span class="number">123</span></div></pre></td></tr></table></figure>
+<h2 id="切片和数组的初始化"><a href="#切片和数组的初始化" class="headerlink" title="切片和数组的初始化"></a>切片和数组的初始化</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;         <span class="comment">// 数组</span></div><div class="line"><span class="keyword">var</span> a = [...]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;       <span class="comment">// 数组</span></div><div class="line"><span class="keyword">var</span> a = []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;          <span class="comment">// 切片</span></div></pre></td></tr></table></figure>
+<h2 id="常量组"><a href="#常量组" class="headerlink" title="常量组"></a>常量组</h2><p>这个算是一个语法糖吧</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> (</div><div class="line">    a = <span class="number">1</span></div><div class="line">    b               <span class="comment">// same as above</span></div><div class="line">    c = <span class="string">"123"</span></div><div class="line">)</div></pre></td></tr></table></figure>
+<p>golang 有变量作用域的概念，全局的 const 也能被覆盖</p>
+<h2 id="iota-关键字"><a href="#iota-关键字" class="headerlink" title="iota 关键字"></a>iota 关键字</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> (</div><div class="line">	B = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</div><div class="line">	KB</div><div class="line">	MB</div><div class="line">	GB</div><div class="line">	TB</div><div class="line">) <span class="comment">// 这个 interesting 了</span></div></pre></td></tr></table></figure>
+<h2 id="多行字符串"><a href="#多行字符串" class="headerlink" title="多行字符串"></a>多行字符串</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> c = <span class="string">`</span></div><div class="line"><span class="string">haha</span></div><div class="line"><span class="string">gua</span></div><div class="line"><span class="string">`</span></div></pre></td></tr></table></figure>
+<h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> c = <span class="string">"abcd"</span></div><div class="line"><span class="keyword">var</span> d = []<span class="keyword">byte</span>(c)   <span class="comment">// 显式类型转换</span></div><div class="line">d[<span class="number">1</span>] = <span class="number">0x66</span></div><div class="line">c = <span class="keyword">string</span>(d)       <span class="comment">// 显式类型转换</span></div></pre></td></tr></table></figure>
+<p>似乎在刷一些字符串处理的问题时很有用</p>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p><strong>可以返回局部变量指针，compiler 会根据需要分配在 GC heap 上</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">haha</span><span class="params">(a <span class="keyword">int</span>)</span> *<span class="title">int</span></span> &#123;</div><div class="line">	<span class="keyword">return</span> &amp;a           <span class="comment">// 神特么这都行？</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">	<span class="keyword">var</span> b = haha(<span class="number">2</span>)</div><div class="line">	fmt.Println(*b)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><p><strong>&amp;^</strong> 运算符，语法糖吧</p>
+<p><strong>^</strong>也同时作用于取反（那乘方怎么办？）</p>
+<h2 id="自增操作"><a href="#自增操作" class="headerlink" title="自增操作"></a>自增操作</h2><p>i++ 没有返回值，++i 也不行</p>
+<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><p>居然没有三元运算符？python 好歹还搞了个语法糖吧。。</p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(s); i++ &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> _, x := <span class="keyword">range</span> s &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> i &gt; <span class="number">0</span> &#123;     <span class="comment">// = while</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> &#123;           <span class="comment">// = while true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="range"><a href="#range" class="headerlink" title="range"></a>range</h2><p>range 会复制对象，建议使用引用类型（slice），确保底层数据不会被复制</p>
+<h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><p>终于不需要 break 了</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; <span class="literal">true</span> &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; &#123;        <span class="comment">// switch 里面的 initialize 部分居然要加分号？</span></div><div class="line"><span class="keyword">case</span> i &gt; <span class="number">1</span>:</div><div class="line">	fmt.Println(<span class="number">1</span>)</div><div class="line"><span class="keyword">case</span> i &lt; <span class="number">0</span>:</div><div class="line">	fmt.Println(<span class="number">-1</span>)</div><div class="line"><span class="keyword">default</span>:</div><div class="line">	fmt.Println(<span class="number">0</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><p>可作为参数传递</p>
+<p>多返回值可以直接作为另一个 function 的参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">func pre() (int, int, int) &#123;</div><div class="line">	return 1, 2, 3</div><div class="line">&#125;</div><div class="line"></div><div class="line">func add(nums ...int) int &#123;</div><div class="line">	var res = 0</div><div class="line">	for _, n := range nums &#123;</div><div class="line">		res += n</div><div class="line">	&#125;</div><div class="line">	return res</div><div class="line">&#125;</div><div class="line"></div><div class="line">func main() &#123;</div><div class="line">	fmt.Println(add(pre()))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>返回是 slice 的时候也可以作为参数，但必须展开</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">func pres() []int &#123;</div><div class="line">	return []int&#123;1, 2, 3&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func add(nums ...int) int &#123;</div><div class="line">	var res = 0</div><div class="line">	for _, n := range nums &#123;</div><div class="line">		res += n</div><div class="line">	&#125;</div><div class="line">	return res</div><div class="line">&#125;</div><div class="line"></div><div class="line">func main() &#123;</div><div class="line">	fmt.Println(add(pres()...))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://stdrickforce.github.io/Index/2017/09/19/go/" data-id="cj7qt11jd0000amferwmwfik4" class="article-share-link">Share</a>
+      <a data-url="http://stdrickforce.github.io/Index/2017/09/19/go/" data-id="cj7qt11jd0000amferwmwfik4" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Index/tags/go/">go</a></li></ul>
@@ -114,7 +141,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Index/tags/go/">go</a></li></ul>
     </div>
@@ -133,7 +160,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Index/archives/2017/09/">September 2017</a></li></ul>
     </div>
@@ -143,7 +170,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         

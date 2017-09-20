@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://stdrickforce.github.io/Index/2017/09/19/go/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="变量定义Go 虽然是强类型语言，但其提供了类型推断，以下几种都是定义变量的合法形式： 1234var a intvar a int = 1var a = 1a := 1 同一类型的常量可以在一行内定义 1var a, b int 不同类型的常量可以利用类型推断初始化 1var a, b = &quot;123&quot;, 123 切片和数组的初始化123var a = [3]int&amp;#123;1, 2, 3&amp;#12">
-<meta property="og:updated_time" content="2017-09-19T01:47:27.000Z">
+<meta property="og:updated_time" content="2017-09-19T02:27:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="go">
 <meta name="twitter:description" content="变量定义Go 虽然是强类型语言，但其提供了类型推断，以下几种都是定义变量的合法形式： 1234var a intvar a int = 1var a = 1a := 1 同一类型的常量可以在一行内定义 1var a, b int 不同类型的常量可以利用类型推断初始化 1var a, b = &quot;123&quot;, 123 切片和数组的初始化123var a = [3]int&amp;#123;1, 2, 3&amp;#12">
@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://stdrickforce.github.io/Index"></form>
@@ -109,7 +109,7 @@
 <h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(s); i++ &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> _, x := <span class="keyword">range</span> s &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> i &gt; <span class="number">0</span> &#123;     <span class="comment">// = while</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> &#123;           <span class="comment">// = while true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="range"><a href="#range" class="headerlink" title="range"></a>range</h2><p>range 会复制对象，建议使用引用类型（slice），确保底层数据不会被复制</p>
 <h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><p>终于不需要 break 了</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; <span class="literal">true</span> &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; <span class="literal">true</span> &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; &#123;    <span class="comment">// same as above</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; &#123;        <span class="comment">// switch 里面的 initialize 部分居然要加分号？</span></div><div class="line"><span class="keyword">case</span> i &gt; <span class="number">1</span>:</div><div class="line">	fmt.Println(<span class="number">1</span>)</div><div class="line"><span class="keyword">case</span> i &lt; <span class="number">0</span>:</div><div class="line">	fmt.Println(<span class="number">-1</span>)</div><div class="line"><span class="keyword">default</span>:</div><div class="line">	fmt.Println(<span class="number">0</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><p>可作为参数传递</p>
 <p>多返回值可以直接作为另一个 function 的参数</p>
@@ -120,7 +120,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://stdrickforce.github.io/Index/2017/09/19/go/" data-id="cj7qt11jd0000amferwmwfik4" class="article-share-link">Delen</a>
+      <a data-url="http://stdrickforce.github.io/Index/2017/09/19/go/" data-id="cj7qt11jd0000amferwmwfik4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Index/tags/go/">go</a></li></ul>
@@ -129,6 +129,20 @@
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/Index/2017/09/19/go-tips/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Golang Tips
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
   
 </article>
 
@@ -141,7 +155,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Index/tags/go/">go</a></li></ul>
     </div>
@@ -160,7 +174,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Index/archives/2017/09/">September 2017</a></li></ul>
     </div>
@@ -170,9 +184,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/Index/2017/09/19/go-cheatbox/">Golang Cheatbox</a>
+          </li>
+        
+          <li>
+            <a href="/Index/2017/09/19/go-tips/">Golang Tips</a>
+          </li>
         
           <li>
             <a href="/Index/2017/09/19/go/">go</a>

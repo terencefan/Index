@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://stdrickforce.github.io/Index"></form>
@@ -60,6 +60,92 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-go-cheatbox" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Index/2017/09/19/go-cheatbox/" class="article-date">
+  <time datetime="2017-09-19T02:25:27.000Z" itemprop="datePublished">2017-09-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Index/2017/09/19/go-cheatbox/">Golang Cheatbox</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="string-和-byte-slice-的转换"><a href="#string-和-byte-slice-的转换" class="headerlink" title="string 和 byte slice 的转换"></a>string 和 byte slice 的转换</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="string">"string"</span></div><div class="line"><span class="keyword">var</span> b = []<span class="keyword">byte</span>(s)</div><div class="line"><span class="keyword">var</span> c = <span class="keyword">string</span>(b)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://stdrickforce.github.io/Index/2017/09/19/go-cheatbox/" data-id="cj7sp9nqw0000zavd0olag4f2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Index/tags/go/">go</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-go-tips" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Index/2017/09/19/go-tips/" class="article-date">
+  <time datetime="2017-09-19T02:25:27.000Z" itemprop="datePublished">2017-09-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Index/2017/09/19/go-tips/">Golang Tips</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> i := <span class="literal">true</span>; &#123;</div><div class="line"><span class="keyword">case</span> i:</div><div class="line">	fmt.Println(<span class="number">0</span>)</div><div class="line"><span class="keyword">default</span>:</div><div class="line">	fmt.Println(<span class="number">1</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">// 输出 0</span></div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> i := <span class="literal">true</span>; <span class="literal">false</span> &#123;</div><div class="line"><span class="keyword">case</span> i:</div><div class="line">	fmt.Println(<span class="number">0</span>)</div><div class="line"><span class="keyword">default</span>:</div><div class="line">	fmt.Println(<span class="number">1</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">// 输出 1</span></div></pre></td></tr></table></figure>
+<p>这是因为<code>switch i := true;</code> 等价于 <code>switch i := true; true</code>，在第二个情况下，condition 被设为了 false，修改了 switch 语句的默认判定条件</p>
+<h2 id="slice-append"><a href="#slice-append" class="headerlink" title="slice append"></a>slice append</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a := [...]<span class="keyword">int</span>&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line">b := a[<span class="number">0</span>:<span class="number">2</span>]</div><div class="line">b = <span class="built_in">append</span>(b, <span class="number">0</span>, <span class="number">1</span>)</div><div class="line">fmt.Println(a)          <span class="comment">// 输出 [0 1 0 1]</span></div></pre></td></tr></table></figure>
+<p>alice 本身是引用，当 cap 未超过原数组最大值时，实际上操作的底层数据是<code>a</code>，因此<code>a</code>的后两个元素被修改成了<code>0 1</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">a := [...]<span class="keyword">int</span>&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line">b := a[<span class="number">0</span>:<span class="number">2</span>]</div><div class="line">b = <span class="built_in">append</span>(b, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</div><div class="line">fmt.Println(a)          <span class="comment">// 输出 [0 1]</span></div><div class="line">fmt.Println(<span class="built_in">cap</span>(b))     <span class="comment">// 输出 8</span></div></pre></td></tr></table></figure>
+<p>对于这个 case，append 的元素数量超过了 cap，slice 会重新分配底层的 cap（一般情况是直接 double），因此<code>a</code>没有被改变，<code>b</code>的 cap 变成了两倍</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">a := [...]<span class="keyword">int</span>&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line">b := a[<span class="number">1</span>:<span class="number">3</span>]</div><div class="line">b = <span class="built_in">append</span>(b, <span class="number">0</span>, <span class="number">1</span>)</div><div class="line">fmt.Println(a)</div><div class="line">fmt.Println(<span class="built_in">cap</span>(b))     <span class="comment">// 输出 6</span></div></pre></td></tr></table></figure>
+<p>上述情况的变种，由于这次<code>b</code>的 low 并不是从 0 开始，cap 的最大值仅为 3，因此 double 后也只有6</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://stdrickforce.github.io/Index/2017/09/19/go-tips/" data-id="cj7sp9nr10001zavd6prziur5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Index/tags/go/">go</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-go" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -106,7 +192,7 @@
 <h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(s); i++ &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> _, x := <span class="keyword">range</span> s &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> i &gt; <span class="number">0</span> &#123;     <span class="comment">// = while</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> &#123;           <span class="comment">// = while true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="range"><a href="#range" class="headerlink" title="range"></a>range</h2><p>range 会复制对象，建议使用引用类型（slice），确保底层数据不会被复制</p>
 <h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><p>终于不需要 break 了</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; <span class="literal">true</span> &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; <span class="literal">true</span> &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; &#123;    <span class="comment">// same as above</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; &#123;        <span class="comment">// switch 里面的 initialize 部分居然要加分号？</span></div><div class="line"><span class="keyword">case</span> i &gt; <span class="number">1</span>:</div><div class="line">	fmt.Println(<span class="number">1</span>)</div><div class="line"><span class="keyword">case</span> i &lt; <span class="number">0</span>:</div><div class="line">	fmt.Println(<span class="number">-1</span>)</div><div class="line"><span class="keyword">default</span>:</div><div class="line">	fmt.Println(<span class="number">0</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><p>可作为参数传递</p>
 <p>多返回值可以直接作为另一个 function 的参数</p>
@@ -117,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://stdrickforce.github.io/Index/2017/09/19/go/" data-id="cj7qt11jd0000amferwmwfik4" class="article-share-link">Delen</a>
+      <a data-url="http://stdrickforce.github.io/Index/2017/09/19/go/" data-id="cj7qt11jd0000amferwmwfik4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Index/tags/go/">go</a></li></ul>
@@ -139,7 +225,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Index/tags/go/">go</a></li></ul>
     </div>
@@ -158,7 +244,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Index/archives/2017/09/">September 2017</a></li></ul>
     </div>
@@ -168,9 +254,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/Index/2017/09/19/go-cheatbox/">Golang Cheatbox</a>
+          </li>
+        
+          <li>
+            <a href="/Index/2017/09/19/go-tips/">Golang Tips</a>
+          </li>
         
           <li>
             <a href="/Index/2017/09/19/go/">go</a>

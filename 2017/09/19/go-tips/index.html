@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Golang Tips | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="switch1234567switch i := true; &amp;#123;case i:	fmt.Println(0)default:	fmt.Println(1)&amp;#125;// 输出 0 1234567switch i := true; false &amp;#123;case i:	fmt.Println(0)default:	fmt.Println(1)&amp;#125;// 输出 1 这是因为swit">
+<meta name="keywords" content="go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang Tips">
+<meta property="og:url" content="http://stdrickforce.github.io/Index/2017/09/19/go-tips/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="switch1234567switch i := true; &amp;#123;case i:	fmt.Println(0)default:	fmt.Println(1)&amp;#125;// 输出 0 1234567switch i := true; false &amp;#123;case i:	fmt.Println(0)default:	fmt.Println(1)&amp;#125;// 输出 1 这是因为swit">
+<meta property="og:updated_time" content="2017-09-20T02:00:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Golang Tips">
+<meta name="twitter:description" content="switch1234567switch i := true; &amp;#123;case i:	fmt.Println(0)default:	fmt.Println(1)&amp;#125;// 输出 0 1234567switch i := true; false &amp;#123;case i:	fmt.Println(0)default:	fmt.Println(1)&amp;#125;// 输出 1 这是因为swit">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Index/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Index/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Index/">Home</a>
+        
+          <a class="main-nav-link" href="/Index/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://stdrickforce.github.io/Index"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-go-tips" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Index/2017/09/19/go-tips/" class="article-date">
+  <time datetime="2017-09-19T02:25:27.000Z" itemprop="datePublished">2017-09-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Golang Tips
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> i := <span class="literal">true</span>; &#123;</div><div class="line"><span class="keyword">case</span> i:</div><div class="line">	fmt.Println(<span class="number">0</span>)</div><div class="line"><span class="keyword">default</span>:</div><div class="line">	fmt.Println(<span class="number">1</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">// 输出 0</span></div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> i := <span class="literal">true</span>; <span class="literal">false</span> &#123;</div><div class="line"><span class="keyword">case</span> i:</div><div class="line">	fmt.Println(<span class="number">0</span>)</div><div class="line"><span class="keyword">default</span>:</div><div class="line">	fmt.Println(<span class="number">1</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">// 输出 1</span></div></pre></td></tr></table></figure>
+<p>这是因为<code>switch i := true;</code> 等价于 <code>switch i := true; true</code>，在第二个情况下，condition 被设为了 false，修改了 switch 语句的默认判定条件</p>
+<h2 id="slice-append"><a href="#slice-append" class="headerlink" title="slice append"></a>slice append</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a := [...]<span class="keyword">int</span>&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line">b := a[<span class="number">0</span>:<span class="number">2</span>]</div><div class="line">b = <span class="built_in">append</span>(b, <span class="number">0</span>, <span class="number">1</span>)</div><div class="line">fmt.Println(a)          <span class="comment">// 输出 [0 1 0 1]</span></div></pre></td></tr></table></figure>
+<p>alice 本身是引用，当 cap 未超过原数组最大值时，实际上操作的底层数据是<code>a</code>，因此<code>a</code>的后两个元素被修改成了<code>0 1</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">a := [...]<span class="keyword">int</span>&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line">b := a[<span class="number">0</span>:<span class="number">2</span>]</div><div class="line">b = <span class="built_in">append</span>(b, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</div><div class="line">fmt.Println(a)          <span class="comment">// 输出 [0 1]</span></div><div class="line">fmt.Println(<span class="built_in">cap</span>(b))     <span class="comment">// 输出 8</span></div></pre></td></tr></table></figure>
+<p>对于这个 case，append 的元素数量超过了 cap，slice 会重新分配底层的 cap（一般情况是直接 double），因此<code>a</code>没有被改变，<code>b</code>的 cap 变成了两倍</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">a := [...]<span class="keyword">int</span>&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line">b := a[<span class="number">1</span>:<span class="number">3</span>]</div><div class="line">b = <span class="built_in">append</span>(b, <span class="number">0</span>, <span class="number">1</span>)</div><div class="line">fmt.Println(a)</div><div class="line">fmt.Println(<span class="built_in">cap</span>(b))     <span class="comment">// 输出 6</span></div></pre></td></tr></table></figure>
+<p>上述情况的变种，由于这次<code>b</code>的 low 并不是从 0 开始，cap 的最大值仅为 3，因此 double 后也只有6</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://stdrickforce.github.io/Index/2017/09/19/go-tips/" data-id="cj7sp9nr10001zavd6prziur5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Index/tags/go/">go</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Index/2017/09/19/go-cheatbox/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Golang Cheatbox
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Index/2017/09/19/go/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">go</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Index/tags/go/">go</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/Index/tags/go/" style="font-size: 10px;">go</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Index/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Index/2017/09/19/go-cheatbox/">Golang Cheatbox</a>
+          </li>
+        
+          <li>
+            <a href="/Index/2017/09/19/go-tips/">Golang Tips</a>
+          </li>
+        
+          <li>
+            <a href="/Index/2017/09/19/go/">go</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Index/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Index/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Index/fancybox/jquery.fancybox.css">
+  <script src="/Index/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Index/js/script.js"></script>
+
+  </div>
+</body>
+</html>

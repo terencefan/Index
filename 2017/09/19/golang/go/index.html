@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://stdrickforce.github.io/Index/2017/09/19/golang/go/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="变量定义Go 虽然是强类型语言，但其提供了类型推断，以下几种都是定义变量的合法形式： 1234var a intvar a int = 1var a = 1a := 1 同一类型的常量可以在一行内定义 1var a, b int 不同类型的常量可以利用类型推断初始化 1var a, b = &quot;123&quot;, 123 切片和数组的初始化123var a = [3]int&amp;#123;1, 2, 3&amp;#12">
-<meta property="og:updated_time" content="2017-09-20T07:33:07.000Z">
+<meta property="og:updated_time" content="2017-09-20T07:42:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go 语法糖">
 <meta name="twitter:description" content="变量定义Go 虽然是强类型语言，但其提供了类型推断，以下几种都是定义变量的合法形式： 1234var a intvar a int = 1var a = 1a := 1 同一类型的常量可以在一行内定义 1var a, b int 不同类型的常量可以利用类型推断初始化 1var a, b = &quot;123&quot;, 123 切片和数组的初始化123var a = [3]int&amp;#123;1, 2, 3&amp;#12">
@@ -113,14 +113,14 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> i := <span class="number">3</span>; &#123;        <span class="comment">// switch 里面的 initialize 部分居然要加分号？</span></div><div class="line"><span class="keyword">case</span> i &gt; <span class="number">1</span>:</div><div class="line">	fmt.Println(<span class="number">1</span>)</div><div class="line"><span class="keyword">case</span> i &lt; <span class="number">0</span>:</div><div class="line">	fmt.Println(<span class="number">-1</span>)</div><div class="line"><span class="keyword">default</span>:</div><div class="line">	fmt.Println(<span class="number">0</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><p>可作为参数传递</p>
 <p>多返回值可以直接作为另一个 function 的参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">func pre() (int, int, int) &#123;</div><div class="line">	return 1, 2, 3</div><div class="line">&#125;</div><div class="line"></div><div class="line">func add(nums ...int) int &#123;</div><div class="line">	var res = 0</div><div class="line">	for _, n := range nums &#123;</div><div class="line">		res += n</div><div class="line">	&#125;</div><div class="line">	return res</div><div class="line">&#125;</div><div class="line"></div><div class="line">func main() &#123;</div><div class="line">	fmt.Println(add(pre()))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">pre</span><span class="params">()</span> <span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>)</span></span> &#123;</div><div class="line">	<span class="keyword">return</span> <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(nums ...<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</div><div class="line">	<span class="keyword">var</span> res = <span class="number">0</span></div><div class="line">	<span class="keyword">for</span> _, n := <span class="keyword">range</span> nums &#123;</div><div class="line">		res += n</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> res</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">	fmt.Println(add(pre()))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>返回是 slice 的时候也可以作为参数，但必须展开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">func pres() []int &#123;</div><div class="line">	return []int&#123;1, 2, 3&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func add(nums ...int) int &#123;</div><div class="line">	var res = 0</div><div class="line">	for _, n := range nums &#123;</div><div class="line">		res += n</div><div class="line">	&#125;</div><div class="line">	return res</div><div class="line">&#125;</div><div class="line"></div><div class="line">func main() &#123;</div><div class="line">	fmt.Println(add(pres()...))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">pres</span><span class="params">()</span> []<span class="title">int</span></span> &#123;</div><div class="line">	<span class="keyword">return</span> []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(nums ...<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</div><div class="line">	<span class="keyword">var</span> res = <span class="number">0</span></div><div class="line">	<span class="keyword">for</span> _, n := <span class="keyword">range</span> nums &#123;</div><div class="line">		res += n</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> res</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">	fmt.Println(add(pres()...))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://stdrickforce.github.io/Index/2017/09/19/golang/go/" data-id="cj7spy3x20003zwvdbzvm12v8" class="article-share-link">Share</a>
+      <a data-url="http://stdrickforce.github.io/Index/2017/09/19/golang/go/" data-id="cj7sqcavr0001b6vdc5ugpoka" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Index/tags/Go/">Go</a></li></ul>
@@ -194,6 +194,10 @@
       <ul>
         
           <li>
+            <a href="/Index/2017/09/20/golang/go-stack/">go-stack</a>
+          </li>
+        
+          <li>
             <a href="/Index/2017/09/19/golang/go-cheatbox/">Golang Cheatbox</a>
           </li>
         
@@ -207,10 +211,6 @@
         
           <li>
             <a href="/Index/2016/02/08/others/bitwise-operation/">位运算的一些小技巧</a>
-          </li>
-        
-          <li>
-            <a href="/Index/2016/02/03/others/xuanxue/">记一次算法题的讨论</a>
           </li>
         
       </ul>
